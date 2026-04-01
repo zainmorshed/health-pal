@@ -40,5 +40,14 @@ public class StatSumService {
         return maxBpm;
     }
 
-    
+    public double calculateVO2Max(Long id) {
+        PersonStats stats = statRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ID not found"));
+        
+        int maxBpm = 220-stats.getAge();
+        int restingHeartRate = stats.getRestingHeartRate();
+
+        double vo2Max = 15.3 * (maxBpm/restingHeartRate);
+
+        return vo2Max;
+    }
 }

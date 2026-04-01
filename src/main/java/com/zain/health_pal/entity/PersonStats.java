@@ -1,7 +1,7 @@
-package com.zain.health-pal.entity;
+package com.zain.health_pal.entity;
 
-import com.zain.health-pal.enums.Activity;
-import com.zain.health-pal.enums.Gender;
+import com.zain.health_pal.enums.Activity;
+import com.zain.health_pal.enums.Gender;
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
@@ -22,9 +22,10 @@ public class PersonStats {
     private double height;
     private double weight;
     private Activity activityLevel;
+    private int restingHeartRate;
 
     
-    public PersonStats(Long personId, String name, int age, Gender gender, double height, double weight, Activity activityLevel) {
+    public PersonStats(Long personId, String name, int age, Gender gender, double height, double weight, Activity activityLevel, int restingHeartRate) {
         this.personId = personId;
         this.name = name;
         this.age = age;
@@ -32,6 +33,15 @@ public class PersonStats {
         this.height = height;
         this.weight = weight;
         this.activityLevel = activityLevel;
+        this.restingHeartRate = restingHeartRate;
+    }
+
+    public int getRestingHeartRate() {
+        return restingHeartRate;
+    }
+
+    public void setRestingHeartRate(int restingHeartRate) {
+        this.restingHeartRate = restingHeartRate;
     }
 
     public PersonStats() {}

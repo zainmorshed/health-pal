@@ -37,6 +37,24 @@ public class StatSumController {
 
         return "Your maximum heart rate is: " + maxBpm + " bpm";
     }
+
+    @GetMapping("calculate-vo2-max/{id}")
+    public String calculateVO2Max(@PathVariable Long id) {
+
+        double vo2Max = statSumService.calculateVO2Max(id);
+        // int vo2MaxCast = (int) Math.round(vo2Max);
+
+        if (vo2Max > 60) {
+            return "Your VO2 Max is " + vo2Max + " mL/(kg*min). Your vo2 max comparable to elite athletes (60-70 ml/kg/min)";
+        } else if (vo2Max > 25.0 && vo2Max < 45.0){
+            return "Your VO2 Max is " + vo2Max + " mL/(kg*min). your vo2 max is average.";
+        } else {
+            return "Your VO2 Max is " + vo2Max + " mL/(kg*min). your vo2 max is below average!";
+        }
+
+
+
+    }
     
 
 
