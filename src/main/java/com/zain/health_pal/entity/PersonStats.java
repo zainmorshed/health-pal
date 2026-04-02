@@ -5,6 +5,8 @@ import com.zain.health_pal.enums.Gender;
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,9 +20,13 @@ public class PersonStats {
 
     private String name;
     private int age;
+
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     private double height;
     private double weight;
+
+    @Enumerated(EnumType.STRING)
     private Activity activityLevel;
     private int restingHeartRate;
 
@@ -36,6 +42,8 @@ public class PersonStats {
         this.restingHeartRate = restingHeartRate;
     }
 
+    public PersonStats(){}
+
     public int getRestingHeartRate() {
         return restingHeartRate;
     }
@@ -44,7 +52,6 @@ public class PersonStats {
         this.restingHeartRate = restingHeartRate;
     }
 
-    public PersonStats() {}
 
 
     public Long getPersonId() {
